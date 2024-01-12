@@ -1,7 +1,7 @@
 import React from 'react'
-import { SafeAreaView, StyleSheet, Text, FlatList, View, StatusBar, Image, ImageBackground } from 'react-native'
+import { SafeAreaView, StyleSheet, Text, FlatList, StatusBar, ImageBackground } from 'react-native'
 import { Feather } from '@expo/vector-icons'
-import ListItem from './src/components/screens/ListItem'
+import ListItem from '../ListItem'
 
   const DATA = [
     {
@@ -41,17 +41,6 @@ import ListItem from './src/components/screens/ListItem'
       ]
     }
   ]
-const Item = ( props ) => {
-    const { dt_txt, min, max, condition } = props
-    return (
-        <View style={styles.item}>
-            <Feather name="sun" size={50} color={'white'} />
-            <Text style={styles.date}>{dt_txt}</Text>
-            <Text style={styles.temp}>{min}</Text>
-            <Text style={styles.temp}>{max}</Text>
-        </View>
-    )
-    }
 const UpcomingWeather = () => {
     const renderItem = ({ item }) => (
         <ListItem condition={item.weather[0].main} 
@@ -59,10 +48,10 @@ const UpcomingWeather = () => {
         max={item.main.temp_max} />
     )
 
-
+const {container, image} = styles
   return (
-    <SafeAreaView style={styles.container}>
-        <ImageBackground source={require('../../../assets/cumulus-499176_1920.jpg')} style={styles.image}>
+    <SafeAreaView style={container}>
+        <ImageBackground source={require('../../../assets/clouds.jpg')} style={image}>
         <Text>Upcoming Weather</Text>
         <FlatList
         data={DATA}
