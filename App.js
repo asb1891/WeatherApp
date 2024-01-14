@@ -9,7 +9,7 @@ const App = () => {
     <View style={styles.containter}>
       {/* <CurrentWeather /> */}
       {/* <UpcomingWeather /> */}
-      <City /> 
+      <CurrentWeather /> 
     </View>
     
   );
